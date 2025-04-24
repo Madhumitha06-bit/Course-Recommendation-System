@@ -1,0 +1,30 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>📚 AI-Powered Course Recommendation</h1>
+        
+        <form method="POST">
+            <input type="text" id="skills" name="skills" placeholder="Enter your skills (e.g., Python, ML, Web Dev)" required>
+            <button type="submit">Find Courses</button>
+        </form>
+
+        {% if recommendations %}
+            <h2>🔍 Recommended Courses:</h2>
+            <ul class="course-list">
+                {% for course in recommendations %}
+                    <li class="course-item">✨ {{ course }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+</body>
+</html>
